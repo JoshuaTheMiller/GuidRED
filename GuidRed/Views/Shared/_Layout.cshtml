@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>GUID Red, the simple guid generator</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="A really-easy, dependable, GUID generator. Copies and regenerates on page click.">
+    <meta name="keywords" content="guid, guid generator, uuid, unique key">
+    <meta name="author" content="Joshua Miller">
+    <link rel="apple-touch-icon" sizes="57x57" href="~/favicons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="~/favicons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="~/favicons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="~/favicons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="~/favicons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="~/favicons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="~/favicons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="~/favicons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="~/favicons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="~/favicons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="~/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="~/favicons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="~/favicons/favicon-16x16.png">
+    <link rel="manifest" href="~/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="~/favicons/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <environment include="Development">
+        <link rel="stylesheet" href="~/css/site.css" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+    </environment>
+</head>
+<body class="stupidContainerForCapturingPageClicks">
+    <header class="notselectable">
+        <h1>GUID<span class="accentText">.RED</span></h1>
+        <h2>The <b>R</b>eally-<b>E</b>asy, <b>D</b>ependable, GUID generator.</h2>
+    </header>
+    @RenderBody()
+    <footer>
+        <p class="hidden">I bet you never knew you wanted such a simple, easy to use GUID generator. Well, here it is.</p>
+        <div class="notselectable">
+            <p class="subtitle">Refreshing the page causes the GUID to <b>only</b> be regenerated and highlighted. The GUID is <a href="https://stackoverflow.com/a/31926061/1542187" target="_blank"><b>not</b></a> copied. In other words, if the GUID is highlighted, it has <b>not</b> been copied.</p>
+            <p class="subtitle">Clicking anywhere on this page causes the current GUID to be copied to your clipboard. The GUID on the page is then regenerated (<b>R</b>eally-<b>E</b>asy).</p>
+            <p class="subtitle">This page uses <a class="subtitle" href="http://msdn.microsoft.com/en-us/library/system.guid.newguid" target="_blank">.NET's GUID generator</a> (<b>D</b>ependable).</p>
+            <p class="subtitle">GUID last copied at: <span id="lastCopiedAtItem">Something bad probably happened if this is present, unless you're looking at the raw HTML, then you are just curious. Probably... Hopefully... Hopefully you're not looking at this for nefarious purposes...</span></p>
+        </div>
+    </footer>
+    <environment include="Development">
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.0.min.js"
+                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                asp-fallback-test="window.jQuery"
+                crossorigin="anonymous"
+                integrity="sha384-K+ctZQ+LL8q6tP7I94W+qzQsfRV2a+AfHIi9k8z8l9ggpc8X+Ytst4yBo/hH+8Fk">
+        </script>
+        <script src="~/js/site.min.js" asp-append-version="true"></script>
+    </environment>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
