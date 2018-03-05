@@ -24,6 +24,8 @@
     <meta name="msapplication-TileImage" content="~/favicons/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
     <environment include="Development">
         <link rel="stylesheet" href="~/css/site.css" />
     </environment>
@@ -33,26 +35,35 @@
 </head>
 <body class="stupidContainerForCapturingPageClicks">
     <header class="notselectable">
-        <h1>GUID<span class="accentText">.RED</span></h1>
-        <h2>The <b>R</b>eally-<b>E</b>asy, <b>D</b>ependable, GUID generator.</h2>
+        <button id="helpButton" class="helpButton">About/Help</button>
+        <h1>
+            GUID<span class="accentText">.RED</span>
+        </h1>
+        <h2>
+            The <b>R</b>eally-<b>E</b>asy, <b>D</b>ependable, GUID generator.
+        </h2>
     </header>
-    @*<div class="notselectable">
-            <div>
-                <h1>Click</h1>
-                <p>to copy the current GUID to your clipboard. After copying, a new GUID is generated.</p>
-            </div>
-            <div>
-                <h1>Refresh</h1>
-                <p>the page to generate and highlight a new GUID.</p>
-            </div>
-            <div>
-                <h1>.Net Core</h1>
-                <p>is what this page uses to generate GUID's. Specifically, it uses: <a class="subtitle" href="http://msdn.microsoft.com/en-us/library/system.guid.newguid" target="_blank">.NET Core's GUID generator</a></p>
-            </div>
-        </div>*@
     @RenderBody()
+    <!-- The Modal -->
+    <div id="helpModal" class="modal notselectable">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span id="modalClose" class="close">&times;</span>
+            <div>
+                <h3>Click</h3>
+                <p class="subtitle">to copy the current GUID to your clipboard. After copying, a new GUID is generated.</p>
+            </div>
+            <div>
+                <h3>Refresh</h3>
+                <p class="subtitle">the page to generate and highlight a new GUID. Refreshing the page causes the GUID to <b>only</b> be regenerated and highlighted. The GUID is <a href="https://stackoverflow.com/a/31926061/1542187" target="_blank"><b>not</b></a> copied. In other words, if the GUID is highlighted, it has <b>not</b> been copied.</p>
+            </div>
+            <div>
+                <h3>.Net Core</h3>
+                <p class="subtitle">is what this page uses to generate GUIDs. Specifically, it uses <a class="subtitle" href="http://msdn.microsoft.com/en-us/library/system.guid.newguid" target="_blank">.NET Core's GUID generator</a></p>
+            </div>
+        </div>
+    </div>
     <footer class="notselectable">
-        <p class="subtitle">Refreshing the page causes the GUID to <b>only</b> be regenerated and highlighted. The GUID is <a href="https://stackoverflow.com/a/31926061/1542187" target="_blank"><b>not</b></a> copied. In other words, if the GUID is highlighted, it has <b>not</b> been copied.</p>
         <p class="subtitle">GUID last copied at: <span id="lastCopiedAtItem">Something bad probably happened if this is present, unless you're looking at the raw HTML, then you are just curious. Probably... Hopefully... Hopefully you're not looking at this for nefarious purposes...</span></p>
     </footer>
     <environment include="Development">

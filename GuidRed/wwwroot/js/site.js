@@ -1,11 +1,25 @@
 ﻿$(initialGuidRequest());
 $(selectAndCopyGuidToClipboard());
 
-$(window).click(function () {
+let modal = $("#helpModal");
+
+$("#helpButton").click(function () {
+    modal.css("display", "block");
+});
+
+$("#modalClose").click(function () {
+    modal.css("display", "none");
+});
+
+$(window).click(function (event) {
     console.log('clicked2');
 
     selectAndCopyGuidToClipboard();
-    requestAndSetNewGuid(); 
+    requestAndSetNewGuid();
+
+    if (event.target === modal) {
+        modal.css("display", "none");
+    }
 });
 
 function initialGuidRequest() {
