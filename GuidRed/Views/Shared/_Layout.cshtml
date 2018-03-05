@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <title>GUID Red, the simple guid generator</title>
+    <title>GUID Red, the simple GUID generator</title>
     <meta charset="UTF-8">
     <meta name="description" content="A really-easy, dependable, GUID generator. Copies and regenerates on page click.">
     <meta name="keywords" content="guid, guid generator, uuid, unique key">
@@ -36,15 +36,24 @@
         <h1>GUID<span class="accentText">.RED</span></h1>
         <h2>The <b>R</b>eally-<b>E</b>asy, <b>D</b>ependable, GUID generator.</h2>
     </header>
+    @*<div class="notselectable">
+            <div>
+                <h1>Click</h1>
+                <p>to copy the current GUID to your clipboard. After copying, a new GUID is generated.</p>
+            </div>
+            <div>
+                <h1>Refresh</h1>
+                <p>the page to generate and highlight a new GUID.</p>
+            </div>
+            <div>
+                <h1>.Net Core</h1>
+                <p>is what this page uses to generate GUID's. Specifically, it uses: <a class="subtitle" href="http://msdn.microsoft.com/en-us/library/system.guid.newguid" target="_blank">.NET Core's GUID generator</a></p>
+            </div>
+        </div>*@
     @RenderBody()
-    <footer>
-        <p class="hidden">I bet you never knew you wanted such a simple, easy to use GUID generator. Well, here it is.</p>
-        <div class="notselectable">
-            <p class="subtitle">Refreshing the page causes the GUID to <b>only</b> be regenerated and highlighted. The GUID is <a href="https://stackoverflow.com/a/31926061/1542187" target="_blank"><b>not</b></a> copied. In other words, if the GUID is highlighted, it has <b>not</b> been copied.</p>
-            <p class="subtitle">Clicking anywhere on this page causes the current GUID to be copied to your clipboard. The GUID on the page is then regenerated (<b>R</b>eally-<b>E</b>asy).</p>
-            <p class="subtitle">This page uses <a class="subtitle" href="http://msdn.microsoft.com/en-us/library/system.guid.newguid" target="_blank">.NET's GUID generator</a> (<b>D</b>ependable).</p>
-            <p class="subtitle">GUID last copied at: <span id="lastCopiedAtItem">Something bad probably happened if this is present, unless you're looking at the raw HTML, then you are just curious. Probably... Hopefully... Hopefully you're not looking at this for nefarious purposes...</span></p>
-        </div>
+    <footer class="notselectable">
+        <p class="subtitle">Refreshing the page causes the GUID to <b>only</b> be regenerated and highlighted. The GUID is <a href="https://stackoverflow.com/a/31926061/1542187" target="_blank"><b>not</b></a> copied. In other words, if the GUID is highlighted, it has <b>not</b> been copied.</p>
+        <p class="subtitle">GUID last copied at: <span id="lastCopiedAtItem">Something bad probably happened if this is present, unless you're looking at the raw HTML, then you are just curious. Probably... Hopefully... Hopefully you're not looking at this for nefarious purposes...</span></p>
     </footer>
     <environment include="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>
